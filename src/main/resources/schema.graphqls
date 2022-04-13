@@ -1,0 +1,25 @@
+type Query {
+    roomIdAndLogin(id: Int, login: String): [Room]
+    findUser(login: String): User
+    availabilityFromTo(login: String, fromDate: String, toDate: String) : [Room]
+}
+
+type User {
+    id: Int
+    login: String
+    role: String
+    reservations: [Reservation]
+}
+
+type Room {
+    id: Int
+    reservations: [Reservation]
+}
+
+type Reservation {
+    id: Int
+    startDate: String
+    endDate: String
+    room: Room
+    user: User
+}
